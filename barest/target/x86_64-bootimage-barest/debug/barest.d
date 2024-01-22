@@ -1,0 +1,1 @@
+C:\Users\Tireni\Documents\year\ 3\year\ 3\ sem\ 1\CSC\ 305\CSC-305-repository\barest\target\x86_64-bootimage-barest\debug\barest: C:\Users\Tireni\Documents\year\ 3\year\ 3\ sem\ 1\CSC\ 305\CSC-305-repository\barest\src\main.rs

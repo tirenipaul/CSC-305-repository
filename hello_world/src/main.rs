@@ -4,7 +4,7 @@
 extern crate hello_world_lib;
 mod how_you_hold_data_for_operations;
 use how_you_hold_data_for_operations::primitives::*;
-use how_you_hold_data_for_operations::derived::user_defined;
+use how_you_hold_data_for_operations::derived::*;
 
 ///Optionally load each member of greetings
 /*use greetings::default_greeting;
@@ -25,9 +25,15 @@ fn main() {
     //greeting = "Hi";
     println!("tireni is sgort!");
     //*println!("{}", english::default_greeting());
-    compound::run();
+    compound::main();
     scalar::run();
-    user_defined::run();
+    user_defined::run2();
+    user_defined::run_circle();
+    user_defined::run_triangle();
+    functions::run();
+    functions::run2();
+    functions::run3();
+    //functions::run4();
     //println!("{}", default_greeting2())
     //println!("My first greeting is '{}' and my second greeting is '{}'", 
     //default_greeting(), 

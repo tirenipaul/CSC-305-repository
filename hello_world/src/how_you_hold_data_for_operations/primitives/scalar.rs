@@ -14,7 +14,7 @@ pub fn run() {
     inferred_type = 429496729i64;
     
     // A mutable variable's value can be changed.
-    let mut mutable; i32 = 12; //Mutable 'i32'
+    let mut mutable: i32 = 12; //Mutable 'i32'
 
     //Error! The type of a variable can't be changed.
     //mutable = true;
@@ -47,5 +47,3 @@ pub fn run() {
     // Use underscores to improve readability!
     println!("One million is written as {}", 1_000_000u32);
 }
-
-fn run

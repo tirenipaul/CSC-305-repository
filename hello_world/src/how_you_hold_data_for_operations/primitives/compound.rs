@@ -1,18 +1,27 @@
-pub fn run() {
+use std::mem;
+
     // Tuples can be used as function arguements and as return values.
     fn reverse (pair: (i32, bool)) -> (bool, i32) {
         // 'let' can be used to bind the memebrs of a tuple to variables.
-        let (int_param: i32, bool_param: bool) = pair;
+        let (int_param, bool_param) = pair;
 
         (bool_param, int_param)
     }
 
-    //The following struct is for the activity.
-    #[derive(Debug)]
-     struct Matrix(f32, f32, f32, f32);
+        //The following struct is for the activity.
+        #[derive(Debug)]
+        struct Matrix(f32, f32, f32, f32);
+
+// This function borrows a slice.
+fn analyze_slice (slice: &[i32]) {
+    println!("First element of the slice: {}", slice[0]);
+    println!("The slice has {} elements", slice.len());
+}
+
+pub fn main() {
 
      //A tuple with a bunch of different types.
-     let long_tuple: (u8, u16, u32, u64, i8, i16, _) = (1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true);
+     let long_tuple = (1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true);
 
      //Values can be extracted from the tuple using tuple indexing.
      println!("Long tuple's first value: {}", long_tuple.0);
@@ -45,28 +54,19 @@ pub fn run() {
     //Tuples can be deconstructed to create bindings.
     let tuple: (i32, &str, f64, bool) = (1, "hello", 4.5, true);
 
-    let (a: i32, b: &str, c: f64, d: bool) = tuple;
+    let (a, b, c, d) = tuple;
     println!("{:?}, {:?}, {:?}, {:?}", a, b, c, d);
 
     let matrix: Matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!("{:?}", matrix);
 
-use std::mem;
-
-// This function borrows a slice.
-fn analyze_slice (slice: &[i32]) {
-    println!("First element of the slice: {}", slice[0]);
-    println!("The slice has {} elements", slice.len());
-}
-
-
     //Fixed-size array (type signatureis superfluous).
     let xs: [i32; 5] = [1, 2, 3, 4, 5];
 
     //All elements can be initiated to the name value.
-    let ys: [i32, 500] = [0; 500];
+    let ys: [i32; 500] = [0; 500];
 
-    //Indexing staarts at 0 just like arrays.
+    //Indexing starts at 0 just like arrays.
     println!("First element of the array: {}", xs[0]);
     println!("Second element of the array: {}", xs[1]);
 
@@ -74,7 +74,7 @@ fn analyze_slice (slice: &[i32]) {
     println!("Number of elements in array: {}", xs.len());
 
     //Arrays are stack aallocated.
-    println!("Array occupies {} bytes", mem::size_of_val(xs));
+    println!("Array occupies {} bytes", mem::size_of_val(&xs));
 
     //Arrays can be automatically borrowed as slices.
     println!("Borrow the whole array as a slice.");
@@ -96,13 +96,13 @@ fn analyze_slice (slice: &[i32]) {
     //This can be matched as shown below, or used with '.except()' if you would like the program to exit with a nice
     //message instead of happily continue.
     
-    for i: usize in 0..xs..len() + 1 { // Oops, one element too far!
-        match xs.get(index i){
-            Some(xval: &i32) => println! ("{}: {}", 1, xval),
+    for i in 0..xs.len() + 1 { // Oops, one element too far!
+        match xs.get(i){
+            Some(xval) => println! ("{}: {}", i, xval),
             None => println! ("Slow down! {} is too far!", i),
         }  
 
-    pub fn multiplier (arr: &[f64]) -> f64 {
+    /*pub fn multiplier (arr: &[f64]) -> f64 {
         let i: usize = 0;
         let product: f64 = 1;
         while i < arr.len() {
@@ -110,7 +110,7 @@ fn analyze_slice (slice: &[i32]) {
             i+=1;
         }
         return product;
-    }
+    }*/
 
     //Arrays
     let arr1:[i32;4] = [10, 20, 30, 40];
